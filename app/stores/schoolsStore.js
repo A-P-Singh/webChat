@@ -1,6 +1,8 @@
 var dispatcher = require("../dispatcher");
 var $ = require("jquery");
 var resourceUrl = "http://localhost:7777/api/schools";
+var loginUrl = "http://localhost:7777/api/login";
+
 function SchoolStore() {
     var listeners = [];
     var schools = [];
@@ -52,6 +54,33 @@ function SchoolStore() {
                 }
             });
         }
+ //...................................
+
+        if(split[0] === "school") {
+            alert("=========loginUrl========");
+            var loginData = $.ajax({
+                type: 'POST',
+                url: loginUrl,
+                data: payload,
+                dataType: "json",
+                success: function (err, resultData) {
+                    if(err){
+                        console.log('...schoolStore.js..===err..==..' + JSON.stringify(err));
+                        alert("loginUrl.....err.......");
+                    }else{
+                        console.log('...schoolStore.js..===resultData..==..' + JSON.stringify(resultData));
+                        alert("loginUrl.....success.......");
+                    }
+                },
+                error: function(er,data){
+                    alert("Errorrrrrrr");
+                }
+            });
+        }
+
+
+//..............................................
+
         if (split[1] === "school") {
             switch (split[1]) {
                 case "addSchool":

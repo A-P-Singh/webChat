@@ -21,7 +21,6 @@ module.exports = React.createClass({
         var name = e.target.name;
         var state = this.state;
         state[name] = e.target.value;
-        console.log('...login.js..==state.==..'+JSON.stringify(state));
         this.setState(state);
     },
     render:function(){
