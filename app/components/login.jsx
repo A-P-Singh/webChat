@@ -1,7 +1,5 @@
 var React = require("react");
 var actions = require("../actions/SchoolActions");
-
-
 //..... Login...........
 
 module.exports = React.createClass({
@@ -11,9 +9,9 @@ module.exports = React.createClass({
             pwd:""
         }
     },
-    addSchool:function(e){
+    loginData:function(e){
         e.preventDefault();
-        actions.addSchool(this.state);
+        actions.loginData(this.state);
     },
     handleInputChange:function(e){
         e.preventDefault();
@@ -25,7 +23,7 @@ module.exports = React.createClass({
     },
     render:function(){
         return(
-            <form className="form" onSubmit={this.addSchool}>
+            <form className="form" onSubmit={this.loginData}>
                 <div className="form-group">
                     <label className="control-label" htmlFor="EmailId">EmailId:</label>
                     <input type="text" className="form-control" id="EmailId" name="EmailId" value={this.state.name} onChange={this.handleInputChange} placeholder="EmailId" />

@@ -32,22 +32,19 @@ function SchoolStore() {
         });
     }
     dispatcher.register(function (payload) {
-        console.log('...schoolStore.js..===payload..==..'+JSON.stringify(payload));
-        var split = payload.type.split(":");
+        console.log('...schoolStore.js..===payload..==..' + JSON.stringify(payload));
 
+        var split = payload.type.split(":");
         console.log('...schoolStore.js..===split..==..'+JSON.stringify(split));
         if(split[0] === "data") {
-            alert("SSSSSSSSSSSSS");
             var saveData = $.ajax({
                 type: 'POST',
                 url: resourceUrl,
                 data: payload,
                 dataType: "json",
                 success: function (err, resultData) {
-
                     console.log('...schoolStore.js..===resultData..==..' + JSON.stringify(resultData));
-
-                    alert("Save Complete")
+                    alert("Save Complete");
                 },
                 error: function(er,data){
                     alert("Errorrrrrrr");
@@ -55,9 +52,7 @@ function SchoolStore() {
             });
         }
  //...................................
-
-        if(split[0] === "school") {
-            alert("=========loginUrl========");
+        if(split[0] === "login") {
             var loginData = $.ajax({
                 type: 'POST',
                 url: loginUrl,
@@ -77,10 +72,7 @@ function SchoolStore() {
                 }
             });
         }
-
-
 //..............................................
-
         if (split[1] === "school") {
             switch (split[1]) {
                 case "addSchool":
@@ -92,7 +84,6 @@ function SchoolStore() {
             }
         }
     });
-
     return {
         getSchools: getSchools,
         onChange: onChange

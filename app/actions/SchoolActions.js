@@ -1,23 +1,19 @@
 var dispatcher = require("../dispatcher");
 
 module.exports = {
-    addSchool:function(school){
-        console.log('...schoolAction.js=====addSchool====..school....'+JSON.stringify(school));
+    loginData:function(login){
         dispatcher.dispatch({
-            school:school,
-            type:"school:addSchool"
+            login:login,
+            type:"login:loginData"
         });
     },
     signup:function(data){
-        console.log('...schoolAction.js=====signup====..data....'+JSON.stringify(data));
-
         dispatcher.dispatch({
             data:data,
-            type:"data:addSchool"
+            type:"data:loginData"
         });
     },
     deleteSchool:function(school){
-        console.log('...schoolAction.js=====deleteSchool====..school....'+JSON.stringify(school));
         dispatcher.dispatch({
             school:school,
             type:"school:deleteSchool"
